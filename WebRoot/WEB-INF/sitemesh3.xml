@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>  
+  <mapping path="/car/*" decorator="/pages/front/decorators/trafficPoliceOnline.jsp"/>
+  <mapping path="/business/*" decorator="/pages/front/decorators/businnessHandle.jsp"/>
+  <mapping path="/manager/*" decorator="/pages/manager/decorators/homeFrame.jsp"/>
+  
+  <!-- 不被渲染的路径.
+  <mapping path="/javadoc/*" exclue="true"/>  
+  <mapping path="/brochures/*" exclue="true"/>
+   -->  
+</sitemesh> 
