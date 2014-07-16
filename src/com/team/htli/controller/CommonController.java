@@ -26,6 +26,7 @@ import com.team.htli.model.WpPosts;
 import com.team.htli.service.iface.CommonService;
 import com.team.htli.util.ConstConfig;
 import com.team.htli.vo.CommonResultData;
+import com.team.htli.vo.HomeData;
 import com.team.htli.vo.PagingResultData;
 import com.team.htli.vo.WpPostsVo;
 
@@ -49,21 +50,46 @@ public class CommonController extends BaseController {
 	@Autowired
 	private CommonService commonService;
 	
+	/**
+	 * 
+	 * <p>Title: getPostListByPaging</p>
+	 * <p>Description: </p>
+	 * @param curPage  当前页
+	 * @param pageNum  分页单位
+	 * @param orderType 排序方式
+	 * @param postType 查询类型（world:达观天下；estate:物业信息；product:群英汇；shop:认证商城）
+	 * @return
+	 */
 	@RequestMapping(value = "/getPostListByPaging", method = RequestMethod.GET)
 	@ResponseBody
 	public CommonResultData<PagingResultData<WpPostsVo>> getPostListByPaging(
 			@RequestParam("curPage")
-			Integer curPage, @RequestParam("pageUtil")
-			Integer pageUtil, @RequestParam("orderType")
-			Integer orderType) {
-		System.out.println("getPostListByPaging start");
+			Integer curPage, @RequestParam("pageNum")
+			Integer pageNum, @RequestParam("orderType")
+			Integer orderType, @RequestParam("postType")
+			String postType) {
 		CommonResultData<PagingResultData<WpPostsVo>> result = new CommonResultData<PagingResultData<WpPostsVo>>(
 				ConstConfig.GlobalResultCode.ERROR_SYS, null);
 		try {
-			result = commonService.getWpPostsListByPaging(curPage, pageUtil ,orderType);
+			result = commonService.getWpPostsListByPaging(curPage, pageNum ,orderType,postType);
 		} catch (Exception e) {
 			System.out.println("getPostListByPaging end "+e.getLocalizedMessage());
 			logger.error("getPostListByPaging:", e);
+			System.out.println(e.getLocalizedMessage());
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	@RequestMapping(value = "/getHomeData", method = RequestMethod.GET)
+	@ResponseBody
+	public CommonResultData<HomeData> getHomeData() {
+		CommonResultData<HomeData> result = new CommonResultData<HomeData>(
+				ConstConfig.GlobalResultCode.ERROR_SYS, null);
+		try {
+			result = commonService.getHomeData();
+		} catch (Exception e) {
+			logger.error("getHomeData:", e);
 			System.out.println(e.getLocalizedMessage());
 			e.printStackTrace();
 		}

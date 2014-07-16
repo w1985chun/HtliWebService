@@ -23,25 +23,25 @@ import java.util.List;
  */
 public class PagingResultData<T> {
 
-	private int totalData;
+	private int totalCount;
 	private List<T> dataList;
 
 	public PagingResultData() {
 		super();
 	}
 
-	public PagingResultData(int totalData, List<T> dataList) {
+	public PagingResultData(int totalCount, List<T> dataList) {
 		super();
-		this.totalData = totalData;
+		this.totalCount = totalCount;
 		this.dataList = dataList;
 	}
 
-	public int getTotalData() {
-		return totalData;
+	public int getTotalCount() {
+		return totalCount;
 	}
 
-	public void setTotalData(int totalData) {
-		this.totalData = totalData;
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
 	}
 
 	public List<T> getDataList() {

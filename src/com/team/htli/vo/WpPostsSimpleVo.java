@@ -1,35 +1,32 @@
 package com.team.htli.vo;
 
-import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  * WpPosts entity. @author MyEclipse Persistence Tools
  */
 
-public class WpPostsVo implements java.io.Serializable {
+public class WpPostsSimpleVo implements java.io.Serializable {
 
 	// Fields
 
+	/** serialVersionUID*/
+	private static final long serialVersionUID = 3250172380958788042L;
 	private Long id;
 	private String postTitle;
-	private String postExcerpt;
 	private String postType;
-	private Date postDate;
 	private String imgUrl;
 
 	// Constructors
 
 	/** default constructor */
-	public WpPostsVo() {
+	public WpPostsSimpleVo() {
 	}
 
-	public WpPostsVo(Long id,String imgUrl,String postTitle, String postExcerpt,String postType) {
+	public WpPostsSimpleVo(Long id,String imgUrl,String postTitle,String postType) {
 		super();
 		this.id = id;
 		this.imgUrl = imgUrl;
 		this.postTitle = postTitle;
-		this.postExcerpt = postExcerpt;
 		this.postType = postType;
 	}
 
@@ -47,22 +44,6 @@ public class WpPostsVo implements java.io.Serializable {
 
 	public void setPostTitle(String postTitle) {
 		this.postTitle = postTitle;
-	}
-
-	public String getPostExcerpt() {
-		return postExcerpt;
-	}
-
-	public void setPostExcerpt(String postExcerpt) {
-		this.postExcerpt = postExcerpt;
-	}
-
-	public Date getPostDate() {
-		return postDate;
-	}
-
-	public void setPostDate(Date postDate) {
-		this.postDate = postDate;
 	}
 
 	public String getImgUrl() {
